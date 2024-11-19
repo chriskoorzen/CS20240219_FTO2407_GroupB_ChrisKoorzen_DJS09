@@ -9,10 +9,11 @@ const footer = document.querySelector('.footer')
 
 // Variables
 let isOpen: boolean
+let authorityStatus : any
 
 enum Permission {
+    READ_ONLY,
     ADMIN,
-    READ_ONLY
 }
 
 enum LoyaltyUser {
@@ -36,6 +37,14 @@ function populateUser(isReturning: boolean, userName: string ) {
     userNameDisplay.innerHTML = userName
 }
 
+
+function showDetails(authorityStatus: Permission, element : HTMLElement, price: number) {
+    if ( authorityStatus === Permission.ADMIN ){
+        const priceDisplay = document.createElement('div')
+        priceDisplay.innerHTML = price.toString() + '/night'
+        element.appendChild(priceDisplay)
+    }
+ }
 
 
 // Data Objects
@@ -163,9 +172,12 @@ for (let i = 0; i < properties.length; i++) {
     image.setAttribute('src', properties[i].image)
     card.appendChild(image)
     propertyContainer.appendChild(card)
+    showDetails(you.permissions, card, properties[i].price)
 }
 
 
 // Simulate user location
 let currentLocation: [string, string, number] = ['London', '11:35', 17]
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
+
+
