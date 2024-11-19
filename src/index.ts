@@ -1,19 +1,17 @@
 import { LoyaltyUser } from "./enums.js"
-import { Review, GeoData } from "./interfaces.js"
+import { GeoData } from "./interfaces.js"
 import { MainProperty } from "./classes.js"
 
-import { populateUser, showDetails, showReviewTotal, getTopTwoReviews } from "./utils.js"
+import { populateUser, showDetails, showReviewTotal, addReviews } from "./utils.js"
 
 import { reviews, you, properties } from "./data.js"
 
 
 // UI element references
-const propertyContainer = document.querySelector('.properties')
-const footer = document.querySelector('.footer')
-const button = document.querySelector('button')
-const reviewContainer = document.querySelector('.reviews')
-const container = document.querySelector('.container')                  // Main property
+const propertyContainer = document.querySelector('.properties')         // Other properties
+const button = document.querySelector('button')                         // Get reviews
 const mainImageContainer = document.querySelector('.main-image')        // Main property image
+const footer = document.querySelector('.footer')
 
 
 const currentLocation: GeoData = {                                      // Simulate user location
@@ -39,23 +37,12 @@ for (let i = 0; i < properties.length; i++) {
     showDetails(you.permissions, card, properties[i].price)
 }
 
-// Show two top reviews to user
-let count = 0
-function addReviews(array: Review[]) : void {
-    if (!count ) {
-        count++
-        const topTwo = getTopTwoReviews(array)
-        for (let i = 0; i < topTwo.length; i++) {
-            const card = document.createElement('div')
-            card.classList.add('review-card')
-            card.innerHTML = topTwo[i].stars + ' stars from ' + topTwo[i].name
-            reviewContainer.appendChild(card)
-        }
-        container.removeChild(button) 
-    }
-}
 
-button.addEventListener('click', () => addReviews(reviews))
+
+button.addEventListener(                            // Show top reviews to user on click
+    'click', () => addReviews(reviews, button)      // then remove button
+)
+
 
 
 footer.innerHTML = `${currentLocation.city} ${currentLocation.time} ${currentLocation.temp}°`

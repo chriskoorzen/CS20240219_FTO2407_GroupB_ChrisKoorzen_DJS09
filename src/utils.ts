@@ -3,12 +3,14 @@ import { Review } from "./interfaces.js"
 
 
 // UI element references
+const container = document.querySelector('.container')                  // Main property
+const reviewContainer = document.querySelector('.reviews')              // Main property reviews
 const reviewTotalDisplay = document.querySelector('#reviews')
 const returningUserDisplay = document.querySelector('#returning-user')
 const userNameDisplay = document.querySelector('#user')
 
 
-// Functionality
+
 export function showReviewTotal(
     value : number,
     reviewer: string,
@@ -56,10 +58,26 @@ export function showDetails(
 }
 
 
-export function getTopTwoReviews(
+function getTopTwoReviews(
     reviews : Review[]
 
 ) : Review[]{
     const sortedReviews = reviews.sort((a, b) => b.stars - a.stars)
     return sortedReviews.slice(0,2)
+}
+
+
+export function addReviews(
+    array: Review[],
+    button: HTMLButtonElement
+
+) : void {
+    const topTwo = getTopTwoReviews(array)
+    for (let i = 0; i < topTwo.length; i++) {
+        const card = document.createElement('div')
+        card.classList.add('review-card')
+        card.innerHTML = topTwo[i].stars + ' stars from ' + topTwo[i].name
+        reviewContainer.appendChild(card)
+    }
+    container.removeChild(button) 
 }
