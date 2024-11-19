@@ -1,11 +1,15 @@
+import { Review } from "types.js"
+import { populateUser, showDetails, showReviewTotal, getTopTwoReviews } from "./utils.js"
+
 import { reviews, you, properties } from "./data.js"
-import { populateUser, showDetails, showReviewTotal } from "./utils.js"
 
 
 // UI element references
 const propertyContainer = document.querySelector('.properties')
 const footer = document.querySelector('.footer')
 const button = document.querySelector('button')
+const reviewContainer = document.querySelector('.reviews')
+const container = document.querySelector('.container')
 
 
 // Variables
@@ -29,9 +33,9 @@ for (let i = 0; i < properties.length; i++) {
     showDetails(you.permissions, card, properties[i].price)
 }
 
-//Broken code
+// Show two top reviews to user
 let count = 0
-function addReviews(array: {string, name, loyaltyUser}) : void {
+function addReviews(array: Review[]) : void {
     if (!count ) {
         count++
         const topTwo = getTopTwoReviews(array)

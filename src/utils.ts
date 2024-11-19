@@ -1,4 +1,5 @@
 import { Permission, LoyaltyUser } from "./enums.js"
+import { Review } from "types.js"
 
 
 // UI element references
@@ -37,15 +38,10 @@ export function showDetails(authorityStatus: Permission, element : HTMLElement, 
 }
 
 
-// Broken code
-export function getTopTwoReviews(reviews : { 
-    name: string; 
-     date: string; 
-     }[]) : { 
-         name: string; 
-         stars: number; 
-         date: string; 
-         }  {
- const sortedReviews = reviews.sort((a, b) => b.stars - a.stars)
- return sortedReviews.slice(0,2)
+export function getTopTwoReviews(
+    reviews : Review[]
+
+) : Review[]{
+    const sortedReviews = reviews.sort((a, b) => b.stars - a.stars)
+    return sortedReviews.slice(0,2)
 }

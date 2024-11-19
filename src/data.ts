@@ -1,14 +1,10 @@
 import { Permission, LoyaltyUser } from "./enums.js"
-import { Country } from "types.js";
+import { Country, Review } from "types.js";
 
 
 // Data Objects
-export const reviews : ({
-    name: string;
-    stars: number;
-    loyaltyUser: LoyaltyUser;
-    date: string;
-}|any)[]= [
+
+export const reviews : (Review|any)[]= [
     {
         name: 'Sheia',
         stars: 5,
