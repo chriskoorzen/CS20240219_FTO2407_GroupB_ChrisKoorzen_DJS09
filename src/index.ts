@@ -66,6 +66,73 @@ const you: {
    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
+const properties: {
+    image: string;
+    title: string;
+    price: number;
+    location: {
+        firstLine: string;
+        city: string;
+        code: number;
+        country: string;
+    };
+    contact: string;
+    isAvailable: boolean;
+}[] = [
+    {
+        image: 'url-to-my-image.jpg',
+        title: 'Rustic Townhouse',
+        price: 50000,
+        location: {
+            firstLine: 'Stork Street 37',
+            city: 'Cape Town',
+            code: 8000,
+            country: 'South Africa'
+        },
+        contact: 'johndeere@gmail.com',
+        isAvailable: true   
+    },
+    {
+        image: '',
+        title: 'Colombian Shack',
+        price: 45,
+        location: {
+            firstLine: 'shack 37',
+            city: 'Bogota',
+            code: 45632,
+            country: 'Colombia'
+        },
+        contact: 'marywinkle@gmail.com',
+        isAvailable: true  
+    },
+    {
+        image: '',
+        title: 'Polish Cottage',
+        price: 34,
+        location: {
+            firstLine: 'no 23',
+            city: 'Gdansk',
+            code: 343903,
+            country: 'Poland'
+        },
+        contact: 'garydavis@hotmail.com',
+        isAvailable: false 
+    },
+    {
+        image: '',
+        title: 'London Flat',
+        price: 23,
+        location: {
+            firstLine: 'flat 15',
+            city: 'London',
+            code: 35433,
+            country: 'United Kingdom',
+        },
+        contact: 'andyluger@aol.com',
+        isAvailable: true
+    }
+]
+
 
 // Run
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
