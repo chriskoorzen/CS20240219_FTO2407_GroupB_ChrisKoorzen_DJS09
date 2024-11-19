@@ -15,11 +15,6 @@ const container = document.querySelector('.container')
 const mainImageContainer = document.querySelector('.main-image')
 
 
-// Variables
-let isOpen: boolean
-let authorityStatus : any
-
-
 // Run
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 populateUser(you.isReturning, you.firstName)
