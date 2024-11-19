@@ -1,4 +1,3 @@
-import { EnumType } from "typescript"
 
 // UI element references
 const reviewTotalDisplay = document.querySelector('#reviews')
@@ -16,10 +15,16 @@ enum Permissions {
     READ_ONLY
 }
 
+enum LoyaltyUser {
+    GOLD_USER = 'GOLD_USER',
+    SILVER_USER = 'SILVER_USER',
+    BRONZE_USER = 'BRONZE_USER',
+}
+
 
 // Functionality
-function showReviewTotal (value : number, reviewer: string, isLoyalty : boolean) {
-    const iconDisplay = isLoyalty ? '⭐' : ''
+function showReviewTotal (value : number, reviewer: string, isLoyalty : LoyaltyUser) {
+    const iconDisplay = (isLoyalty === LoyaltyUser.GOLD_USER) ? '⭐' : ''
     reviewTotalDisplay.innerHTML = `review total ${value.toString()} | last reviewed by ${reviewer} ${iconDisplay}`
 }
 
@@ -37,25 +42,25 @@ function populateUser(isReturning: boolean, userName: string ) {
 const reviews : {
     name: string;
     stars: number;
-    loyaltyUser: boolean;
+    loyaltyUser: LoyaltyUser;
     date: string;
 }[]= [
     {
         name: 'Sheia',
         stars: 5,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
         date: '01-04-2021'
     },
     {
         name: 'Andrzej',
         stars: 3,
-        loyaltyUser: false,
+        loyaltyUser: LoyaltyUser.BRONZE_USER,
         date: '28-03-2021'
     },
     {
         name: 'Omar',
         stars: 4,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.SILVER_USER,
         date: '27-03-2021'
     },
 ]
