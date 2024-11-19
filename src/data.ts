@@ -1,6 +1,5 @@
 import { Permission, LoyaltyUser } from "./enums.js"
-import { Country } from "./types.js"
-import { Review } from "./interfaces.js"
+import { Review, Property } from "./interfaces.js"
 
 
 // Data Objects
@@ -43,23 +42,11 @@ export const you: {
    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
-export const properties: {
-    image: string;
-    title: string;
-    price: number;
-    location: {
-        firstLine: string;
-        city: string;
-        code: number;
-        country: Country;
-    };
-    contact: [number, string];
-    isAvailable: boolean;
-}[] = [
+export const properties: Property[] = [
     {
         image: 'url-to-my-image.jpg',
         title: 'Rustic Townhouse',
-        price: 50000,
+        price: 50,
         location: {
             firstLine: 'Stork Street 37',
             city: 'Cape Town',
@@ -85,7 +72,7 @@ export const properties: {
     {
         image: 'images/poland-property.jpg',
         title: 'Polish Cottage',
-        price: 34,
+        price: 30,
         location: {
             firstLine: 'no 23',
             city: 'Gdansk',
@@ -98,7 +85,7 @@ export const properties: {
     {
         image: 'images/london-property.jpg',
         title: 'London Flat',
-        price: 23,
+        price: 25,
         location: {
             firstLine: 'flat 15',
             city: 'London',
