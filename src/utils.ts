@@ -11,6 +11,14 @@ const userNameDisplay = document.querySelector('#user')
 
 
 
+/**
+ * Updates UI with total reviews for a given property
+ *
+ * @export
+ * @param {number} value
+ * @param {string} reviewer
+ * @param {LoyaltyUser} isLoyalty
+ */
 export function showReviewTotal(
     value : number,
     reviewer: string,
@@ -22,16 +30,30 @@ export function showReviewTotal(
 }
 
 
+/**
+ * Determines if a plural "s" is needed for a string.
+ *
+ * @param {number} value
+ * @returns {"s" | ""}
+ */
 function makeMultiple(
     value: number
 
-) : string {
+) : ("s" | "") {
     if (value > 1) {
         return 's'
     } else return ''
 }
 
 
+
+/**
+ * Updates UI message based on user's navigation history
+ *
+ * @export
+ * @param {boolean} isReturning
+ * @param {string} userName
+ */
 export function populateUser(
     isReturning: boolean,
     userName: string 
@@ -44,6 +66,15 @@ export function populateUser(
 }
 
 
+
+/**
+ * Updates UI with additional sensitive information if User is authorized
+ *
+ * @export
+ * @param {Permission} authorityStatus
+ * @param {HTMLElement} element
+ * @param {number} price
+ */
 export function showDetails(        
     authorityStatus: Permission,
     element : HTMLElement,
@@ -58,6 +89,13 @@ export function showDetails(
 }
 
 
+
+/**
+ * Returns the two highest rated Review objects from an Array of Review's
+ *
+ * @param {Review[]} reviews
+ * @returns {Review[]}
+ */
 function getTopTwoReviews(
     reviews : Review[]
 
@@ -67,6 +105,15 @@ function getTopTwoReviews(
 }
 
 
+
+/**
+ * Updates the UI with reviews for a given property, and removes the button listener
+ * that called this function.
+ *
+ * @export
+ * @param {Review[]} array
+ * @param {HTMLButtonElement} button
+ */
 export function addReviews(
     array: Review[],
     button: HTMLButtonElement

@@ -30,7 +30,7 @@ footer.innerHTML = `${currentLocation.city} ${currentLocation.time} ${currentLoc
 let yourMainProperty = new MainProperty(            // Create MainProperty...
     'images/italian-property.jpg', 
     'Italian House',
-    [{
+    [{                                              // ...with this Review object Array...
         name: 'Olive',
         stars: 5,
         loyaltyUser: LoyaltyUser.GOLD_USER,
