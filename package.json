@@ -1,13 +1,19 @@
 {
-  "name": "project",
-  "dependencies": {},
-  "devDependencies": {
-    "webpack": "^2.0",
-    "ts-loader": "*",
-    "typescript": "*"
-  },
+  "private": true,
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack -w"
-  }
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.3",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "name": "09-typescriptcouch",
+  "version": "1.0.0",
+  "description": "DJS09",
+  "devDependencies": {},
+  "author": "Chris Koorzen",
+  "license": "ISC"
 }
