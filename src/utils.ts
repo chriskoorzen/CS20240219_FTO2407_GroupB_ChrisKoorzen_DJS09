@@ -34,4 +34,18 @@ export function showDetails(authorityStatus: Permission, element : HTMLElement, 
         priceDisplay.innerHTML = price.toString() + '/night'
         element.appendChild(priceDisplay)
     }
- }
+}
+
+
+// Broken code
+export function getTopTwoReviews(reviews : { 
+    name: string; 
+     date: string; 
+     }[]) : { 
+         name: string; 
+         stars: number; 
+         date: string; 
+         }  {
+ const sortedReviews = reviews.sort((a, b) => b.stars - a.stars)
+ return sortedReviews.slice(0,2)
+}
