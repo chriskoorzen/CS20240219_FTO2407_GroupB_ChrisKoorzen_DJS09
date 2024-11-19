@@ -21,34 +21,13 @@ const currentLocation: GeoData = {                                      // Simul
 }
 
 
-// Run
-showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
-populateUser(you.isReturning, you.firstName)
+// --- Imperative page creation ---
 
-//Add the properties
-for (let i = 0; i < properties.length; i++) {
-    const card = document.createElement('div')
-    card.classList.add('card')
-    card.innerHTML = properties[i].title
-    const image = document.createElement('img')
-    image.setAttribute('src', properties[i].image)
-    card.appendChild(image)
-    propertyContainer.appendChild(card)
-    showDetails(you.permissions, card, properties[i].price)
-}
+populateUser(you.isReturning, you.firstName)        // Show logged-in "User"
 
+footer.innerHTML = `${currentLocation.city} ${currentLocation.time} ${currentLocation.temp}°`   // Set footer
 
-
-button.addEventListener(                            // Show top reviews to user on click
-    'click', () => addReviews(reviews, button)      // then remove button
-)
-
-
-
-footer.innerHTML = `${currentLocation.city} ${currentLocation.time} ${currentLocation.temp}°`
-
-
-let yourMainProperty = new MainProperty(
+let yourMainProperty = new MainProperty(            // Create MainProperty...
     'images/italian-property.jpg', 
     'Italian House',
     [{
@@ -58,7 +37,27 @@ let yourMainProperty = new MainProperty(
         date: '12-04-2021'
     }]
 )
-
-const image = document.createElement('img')
+const image = document.createElement('img')         // ...and display its image
 image.setAttribute('src', yourMainProperty.src)
 mainImageContainer.appendChild(image)
+
+showReviewTotal(                                    // Display no. of reviews on Main property
+    reviews.length,
+    reviews[0].name,
+    reviews[0].loyaltyUser
+)
+
+button.addEventListener(                            // Show top reviews to user on click
+    'click', () => addReviews(reviews, button)      // then remove button
+)
+
+for (let i = 0; i < properties.length; i++) {       // Display other (recommended) properties
+    const card = document.createElement('div')
+    card.classList.add('card')
+    card.innerHTML = properties[i].title
+    const image = document.createElement('img')
+    image.setAttribute('src', properties[i].image)
+    card.appendChild(image)
+    propertyContainer.appendChild(card)
+    showDetails(you.permissions, card, properties[i].price)
+}
