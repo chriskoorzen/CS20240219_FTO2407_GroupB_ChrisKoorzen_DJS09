@@ -1,5 +1,5 @@
 import { Permission, LoyaltyUser } from "./enums.js"
-import { Review, Property } from "./interfaces.js"
+import { Review, Property, User } from "./interfaces.js"
 
 
 // Data Objects
@@ -22,18 +22,11 @@ export const reviews : (Review|any)[]= [
         stars: 4,
         loyaltyUser: LoyaltyUser.SILVER_USER,
         date: '27-03-2021',
-        description: 'Great hosts, location was a bit further than said.'
+        description: 'Great hosts, location was a bit further than said.'   // the prop that makes this object "any"
     },
 ]
 
-export const you: {
-    firstName : string;
-    lastName: string;
-    permissions: Permission,
-    isReturning: boolean;
-    age: number;
-    stayedAt: string[];
-} = {
+export const you: User = {
    firstName: 'Bobby',
    lastName: 'Brown',
    permissions: Permission.ADMIN,

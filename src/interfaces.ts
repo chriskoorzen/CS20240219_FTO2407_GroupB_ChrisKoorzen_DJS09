@@ -1,5 +1,15 @@
-import { LoyaltyUser } from "./enums.js"
+import { LoyaltyUser, Permission } from "./enums.js"
 import { Price, Country } from "./types.js"
+
+
+export interface User {
+    firstName : string;
+    lastName: string;
+    permissions: Permission,
+    isReturning: boolean;
+    age: number;
+    stayedAt: string[];
+}
 
 
 export interface Review {
