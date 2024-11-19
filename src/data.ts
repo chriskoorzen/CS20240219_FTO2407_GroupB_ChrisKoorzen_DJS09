@@ -44,7 +44,7 @@ export const you: {
 
 export const properties: Property[] = [
     {
-        image: 'url-to-my-image.jpg',
+        image: 'images/malaysian-hotel.jpeg',
         title: 'Rustic Townhouse',
         price: 50,
         location: {
