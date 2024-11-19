@@ -1,7 +1,8 @@
 import { LoyaltyUser } from "./enums.js"
-import { Review } from "./interfaces.js"
-import { populateUser, showDetails, showReviewTotal, getTopTwoReviews } from "./utils.js"
+import { Review, GeoData } from "./interfaces.js"
 import { MainProperty } from "./classes.js"
+
+import { populateUser, showDetails, showReviewTotal, getTopTwoReviews } from "./utils.js"
 
 import { reviews, you, properties } from "./data.js"
 
@@ -11,8 +12,15 @@ const propertyContainer = document.querySelector('.properties')
 const footer = document.querySelector('.footer')
 const button = document.querySelector('button')
 const reviewContainer = document.querySelector('.reviews')
-const container = document.querySelector('.container')
-const mainImageContainer = document.querySelector('.main-image')
+const container = document.querySelector('.container')                  // Main property
+const mainImageContainer = document.querySelector('.main-image')        // Main property image
+
+
+const currentLocation: GeoData = {                                      // Simulate user location
+    city: 'London',
+    time: '11:35',
+    temp: 17
+}
 
 
 // Run
@@ -50,9 +58,7 @@ function addReviews(array: Review[]) : void {
 button.addEventListener('click', () => addReviews(reviews))
 
 
-// Simulate user location
-let currentLocation: [string, string, number] = ['London', '11:35', 17]
-footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
+footer.innerHTML = `${currentLocation.city} ${currentLocation.time} ${currentLocation.temp}°`
 
 
 let yourMainProperty = new MainProperty(

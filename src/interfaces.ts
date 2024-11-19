@@ -12,6 +12,13 @@ export interface User {
 }
 
 
+export interface GeoData {
+    city: string;
+    time: string;
+    temp: number
+}
+
+
 export interface Review {
     name: string;
     stars: number;
