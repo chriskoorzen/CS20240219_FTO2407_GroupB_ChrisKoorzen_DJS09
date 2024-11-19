@@ -47,13 +47,19 @@ const reviews = [
     },
 ]
 
-
-const you = {
-    userName: 'Bobby',
-    isReturning: true,
+const you: {
+    firstName : string;
+    lastName: string;
+    isReturning: boolean;
+    age: number;
+} = {
+   firstName: 'Bobby',
+   lastName: 'Brown',
+   isReturning: true,
+   age: 35
 }
 
 
 // Run
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
-populateUser(you.isReturning, you.userName)
+populateUser(you.isReturning, you.firstName)
