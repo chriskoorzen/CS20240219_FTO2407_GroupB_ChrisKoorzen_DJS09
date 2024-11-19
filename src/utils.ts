@@ -1,5 +1,5 @@
 import { Permission, LoyaltyUser } from "./enums.js"
-import { Review } from "types.js"
+import { Review } from "./interfaces.js"
 
 
 // UI element references

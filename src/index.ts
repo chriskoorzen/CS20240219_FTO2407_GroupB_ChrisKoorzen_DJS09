@@ -1,4 +1,4 @@
-import { Review } from "types.js"
+import { Review } from "./interfaces.js"
 import { populateUser, showDetails, showReviewTotal, getTopTwoReviews } from "./utils.js"
 
 import { reviews, you, properties } from "./data.js"

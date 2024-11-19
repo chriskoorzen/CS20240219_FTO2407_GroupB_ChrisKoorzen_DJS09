@@ -1,5 +1,6 @@
 import { Permission, LoyaltyUser } from "./enums.js"
-import { Country, Review } from "types.js";
+import { Country } from "./types.js"
+import { Review } from "./interfaces.js"
 
 
 // Data Objects
