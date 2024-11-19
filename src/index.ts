@@ -10,7 +10,7 @@ const footer = document.querySelector('.footer')
 // Variables
 let isOpen: boolean
 
-enum Permissions {
+enum Permission {
     ADMIN,
     READ_ONLY
 }
@@ -61,21 +61,22 @@ const reviews : {
         name: 'Omar',
         stars: 4,
         loyaltyUser: LoyaltyUser.SILVER_USER,
-        date: '27-03-2021'
+        date: '27-03-2021',
+        description: 'Great hosts, location was a bit further than said.'
     },
 ]
 
 const you: {
     firstName : string;
     lastName: string;
-    permissions: Permissions,
+    permissions: Permission,
     isReturning: boolean;
     age: number;
     stayedAt: string[];
 } = {
    firstName: 'Bobby',
    lastName: 'Brown',
-   permissions: Permissions.ADMIN,
+   permissions: Permission.ADMIN,
    isReturning: true,
    age: 35,
    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
