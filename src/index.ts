@@ -1,3 +1,4 @@
+import { EnumType } from "typescript"
 
 // UI element references
 const reviewTotalDisplay = document.querySelector('#reviews')
@@ -9,6 +10,11 @@ const footer = document.querySelector('.footer')
 
 // Variables
 let isOpen: boolean
+
+enum Permissions {
+    ADMIN,
+    READ_ONLY
+}
 
 
 // Functionality
@@ -57,12 +63,14 @@ const reviews : {
 const you: {
     firstName : string;
     lastName: string;
+    permissions: Permissions,
     isReturning: boolean;
     age: number;
     stayedAt: string[];
 } = {
    firstName: 'Bobby',
    lastName: 'Brown',
+   permissions: Permissions.ADMIN,
    isReturning: true,
    age: 35,
    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
