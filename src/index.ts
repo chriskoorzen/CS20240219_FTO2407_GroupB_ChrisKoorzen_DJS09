@@ -39,12 +39,12 @@ function populateUser(isReturning: boolean, userName: string ) {
 
 
 // Data Objects
-const reviews : {
+const reviews : ({
     name: string;
     stars: number;
     loyaltyUser: LoyaltyUser;
     date: string;
-}[]= [
+}|any)[]= [
     {
         name: 'Sheia',
         stars: 5,
