@@ -1,4 +1,5 @@
 import { Permission, LoyaltyUser } from "./enums.js"
+import { Country } from "types.js";
 
 
 // Data Objects
@@ -53,7 +54,7 @@ export const properties: {
         firstLine: string;
         city: string;
         code: number;
-        country: string;
+        country: Country;
     };
     contact: [number, string];
     isAvailable: boolean;
