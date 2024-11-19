@@ -1,5 +1,7 @@
+import { LoyaltyUser } from "./enums.js"
 import { Review } from "./interfaces.js"
 import { populateUser, showDetails, showReviewTotal, getTopTwoReviews } from "./utils.js"
+import { MainProperty } from "./classes.js"
 
 import { reviews, you, properties } from "./data.js"
 
@@ -10,6 +12,7 @@ const footer = document.querySelector('.footer')
 const button = document.querySelector('button')
 const reviewContainer = document.querySelector('.reviews')
 const container = document.querySelector('.container')
+const mainImageContainer = document.querySelector('.main-image')
 
 
 // Variables
@@ -57,3 +60,17 @@ let currentLocation: [string, string, number] = ['London', '11:35', 17]
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
 
 
+let yourMainProperty = new MainProperty(
+    'images/italian-property.jpg', 
+    'Italian House',
+    [{
+        name: 'Olive',
+        stars: 5,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
+        date: '12-04-2021'
+    }]
+)
+
+const image = document.createElement('img')
+image.setAttribute('src', yourMainProperty.src)
+mainImageContainer.appendChild(image)
