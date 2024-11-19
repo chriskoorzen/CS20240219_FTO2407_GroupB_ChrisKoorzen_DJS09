@@ -36,7 +36,7 @@ export function populateUser(
 
 ) : void {
     if (isReturning){
-        returningUserDisplay.innerHTML = 'back'     // Bug: This value will be overridden by the next line
+        returningUserDisplay.innerHTML = 'back'
     }
     userNameDisplay.innerHTML = userName
 }
