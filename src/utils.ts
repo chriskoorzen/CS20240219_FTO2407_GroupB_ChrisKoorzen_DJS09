@@ -3,11 +3,11 @@ import { Review } from "./interfaces.js"
 
 
 // UI element references
-const container = document.querySelector('.container')                  // Main property
-const reviewContainer = document.querySelector('.reviews')              // Main property reviews
-const reviewTotalDisplay = document.querySelector('#reviews')
-const returningUserDisplay = document.querySelector('#returning-user')
-const userNameDisplay = document.querySelector('#user')
+const container = document.querySelector('.container')as HTMLElement;                  // Main property
+const reviewContainer = document.querySelector('.reviews')as HTMLElement;              // Main property reviews
+const reviewTotalDisplay = document.querySelector('#reviews')as HTMLElement;
+const returningUserDisplay = document.querySelector('#returning-user')as HTMLElement;
+const userNameDisplay = document.querySelector('#user')as HTMLElement;
 
 
 
@@ -112,11 +112,11 @@ function getTopTwoReviews(
  *
  * @export
  * @param {Review[]} array
- * @param {HTMLButtonElement} button
+ * @param {HTMLElement} button
  */
 export function addReviews(
     array: Review[],
-    button: HTMLButtonElement
+    button: HTMLElement
 
 ) : void {
     const topTwo = getTopTwoReviews(array)

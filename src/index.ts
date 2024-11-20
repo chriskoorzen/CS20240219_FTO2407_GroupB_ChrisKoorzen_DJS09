@@ -8,10 +8,10 @@ import { reviews, you, properties } from "./data.js"
 
 
 // UI element references
-const propertyContainer = document.querySelector('.properties')         // Other properties
-const button = document.querySelector('button')                         // Get reviews
-const mainImageContainer = document.querySelector('.main-image')        // Main property image
-const footer = document.querySelector('.footer')
+const propertyContainer = document.querySelector('.properties') as HTMLElement;         // Other properties
+const button = document.querySelector('button') as HTMLElement;                         // Get reviews
+const mainImageContainer = document.querySelector('.main-image') as HTMLElement;        // Main property image
+const footer = document.querySelector('.footer') as HTMLElement;
 
 
 const currentLocation: GeoData = {                                      // Simulate user location
