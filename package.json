@@ -2,7 +2,9 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "compile": "tsc",
+    "bundle": "webpack",
+    "build": "npm run compile && npm run bundle"
   },
   "dependencies": {
     "ts-loader": "^9.5.1",
